@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, x;
+        cin >> n >> x;
+
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+
+        // Add start (0) and destination (x)
+        arr.push_back(0);
+        arr.push_back(x);
+
+        // Sort stations
+        sort(arr.begin(), arr.end());
+
+        int maxGap = 0;
+        for (int i = 1; i < arr.size(); i++) {
+            maxGap = max(maxGap, arr[i] - arr[i - 1]);
+        }
+
+        // Special case: last gap (x - last station) counts double for return trip
+        maxGap = max(maxGap, 2 * (x - arr[n])); 
+
+        cout << maxGap << "\n";
+    }
+
+    return 0;
+}
