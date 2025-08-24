@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+
+        // Check who wins based on n % 3
+        if (n % 3 == 0) {
+            cout << "Second\n";  // Vova wins bcz add or sub 1 will not make it divisble by 3
+        } else {
+            cout << "First\n";   // Vanya wins bcz if no is 2 then we can add 1 so that it could be divisble by 3
+          
+        }
+    }
+    return 0;
+}
